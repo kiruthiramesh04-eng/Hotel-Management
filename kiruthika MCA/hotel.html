@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+    <!-- Top navigation with logo, search, notifications, profile, logout -->
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-mark">HM</div>
+            <div class="brand-text">
+                <span class="brand-name">Grand Vista</span>
+                <small>Hotel Management</small>
+            </div>
+        </div>
+        <div class="top-actions">
+            <label class="search">
+                <span class="sr-only">Search</span>
+                <input type="search" placeholder="Search...">
+            </label>
+            <button class="icon-btn" aria-label="Notifications">🔔</button>
+            <div class="user-chip">
+                <div class="avatar">AK</div>
+                <span>Alex Kim</span>
+            </div>
+            <button class="ghost-btn">Logout</button>
+        </div>
+    </header>
+
+    <div class="layout">
+        <!-- Sidebar navigation -->
+        <nav class="sidebar" aria-label="Primary">
+            <a class="nav-link active" href="#dashboard">Dashboard</a>
+            <a class="nav-link" href="#reservations">Reservations</a>
+            <a class="nav-link" href="#rooms">Rooms</a>
+            <a class="nav-link" href="#billing">Billing</a>
+            <a class="nav-link" href="#reports">Reports</a>
+            <a class="nav-link" href="#staff">Staff</a>
+            <a class="nav-link" href="#settings">Settings</a>
+        </nav>
+
+        <!-- Main content -->
+        <main class="content">
+            <!-- Dashboard Page -->
+            <section id="dashboard" class="panel">
+                <div class="panel-head">
+                    <div>
+                        <h1>Dashboard</h1>
+                        <p>Today’s overview</p>
+                    </div>
+                    <button class="primary-btn">Generate Report</button>
+                </div>
+
+                <!-- Summary cards -->
+                <div class="cards">
+                    <article class="card">
+                        <p class="card-label">Total Rooms</p>
+                        <p class="card-value">220</p>
+                    </article>
+                    <article class="card">
+                        <p class="card-label">Occupied Rooms</p>
+                        <p class="card-value">168</p>
+                    </article>
+                    <article class="card">
+                        <p class="card-label">Available Rooms</p>
+                        <p class="card-value">52</p>
+                    </article>
+                    <article class="card">
+                        <p class="card-label">Daily Revenue</p>
+                        <p class="card-value">₹ 4,85,000</p>
+                    </article>
+                    <article class="card">
+                        <p class="card-label">Pending Check-outs</p>
+                        <p class="card-value">18</p>
+                    </article>
+                </div>
+
+                <!-- Charts (CSS placeholders) -->
+                <div class="charts">
+                    <div class="chart-card">
+                        <div class="chart-head">
+                            <h3>Monthly Revenue</h3><span>Bar chart</span>
+                        </div>
+                        <div class="bar-chart" role="img" aria-label="Monthly revenue bar chart placeholder">
+                            <div style="height: 55%"></div>
+                            <div style="height: 68%"></div>
+                            <div style="height: 72%"></div>
+                            <div style="height: 80%"></div>
+                            <div style="height: 64%"></div>
+                            <div style="height: 90%"></div>
+                        </div>
+                        <div class="chart-xlabels">
+                            <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-head">
+                            <h3>Room Occupancy</h3><span>Pie chart</span>
+                        </div>
+                        <div class="pie-chart" role="img" aria-label="Room occupancy pie chart placeholder"></div>
+                        <div class="legend">
+                            <span class="dot available"></span><small>Available</small>
+                            <span class="dot occupied"></span><small>Occupied</small>
+                            <span class="dot dirty"></span><small>Dirty</small>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reservations Page -->
+            <section id="reservations" class="panel">
+                <div class="panel-head">
+                    <div>
+                        <h2>Reservations</h2>
+                        <p>Manage guest bookings</p>
+                    </div>
+                    <div class="actions">
+                        <input class="input" type="search" placeholder="Search reservations">
+                        <select class="input">
+                            <option>All statuses</option>
+                            <option>Confirmed</option>
+                            <option>Pending</option>
+                            <option>Canceled</option>
+                        </select>
+                        <button class="primary-btn">Add Reservation</button>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Reservation ID</th><th>Guest Name</th><th>Room Type</th>
+                            <th>Check-in</th><th>Check-out</th><th>Status</th><th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>#R-1045</td><td>Ananya Rao</td><td>Deluxe</td>
+                            <td>07 Jan</td><td>10 Jan</td><td><span class="badge success">Confirmed</span></td>
+                            <td class="table-actions"><button class="ghost-btn">Edit</button><button class="ghost-btn">Cancel</button></td>
+                        </tr>
+                        <tr>
+                            <td>#R-1046</td><td>Rahul Mehta</td><td>Suite</td>
+                            <td>08 Jan</td><td>11 Jan</td><td><span class="badge warning">Pending</span></td>
+                            <td class="table-actions"><button class="ghost-btn">Edit</button><button class="ghost-btn">Cancel</button></td>
+                        </tr>
+                        <tr>
+                            <td>#R-1047</td><td>Priya Nair</td><td>Standard</td>
+                            <td>08 Jan</td><td>09 Jan</td><td><span class="badge danger">Canceled</span></td>
+                            <td class="table-actions"><button class="ghost-btn">Edit</button><button class="ghost-btn">Cancel</button></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Room Management Page -->
+            <section id="rooms" class="panel">
+                <div class="panel-head">
+                    <div>
+                        <h2>Room Management</h2>
+                        <p>Status and assignments</p>
+                    </div>
+                    <div class="actions">
+                        <select class="input">
+                            <option>All statuses</option>
+                            <option>Available</option>
+                            <option>Occupied</option>
+                            <option>Dirty</option>
+                            <option>Maintenance</option>
+                        </select>
+                        <button class="ghost-btn">Sort</button>
+                    </div>
+                </div>
+                <div class="room-grid">
+                    <article class="room-card">
+                        <div class="room-top">
+                            <span class="room-number">101</span>
+                            <span class="status-dot available">Available</span>
+                        </div>
+                        <p>Type: Deluxe</p>
+                        <p>Guest: —</p>
+                    </article>
+                    <article class="room-card">
+                        <div class="room-top">
+                            <span class="room-number">205</span>
+                            <span class="status-dot occupied">Occupied</span>
+                        </div>
+                        <p>Type: Suite</p>
+                        <p>Guest: R. Mehta</p>
+                    </article>
+                    <article class="room-card">
+                        <div class="room-top">
+                            <span class="room-number">312</span>
+                            <span class="status-dot dirty">Dirty</span>
+                        </div>
+                        <p>Type: Standard</p>
+                        <p>Guest: —</p>
+                    </article>
+                    <article class="room-card">
+                        <div class="room-top">
+                            <span class="room-number">418</span>
+                            <span class="status-dot maintenance">Maintenance</span>
+                        </div>
+                        <p>Type: Deluxe</p>
+                        <p>Guest: —</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Billing Page -->
+            <section id="billing" class="panel">
+                <div class="panel-head">
+                    <div>
+                        <h2>Billing / Invoice</h2>
+                        <p>Guest charges summary</p>
+                    </div>
+                    <div class="actions">
+                        <select class="input">
+                            <option>Invoice Status</option>
+                            <option>Paid</option>
+                            <option>Pending</option>
+                        </select>
+                        <button class="primary-btn">Print / Download</button>
+                    </div>
+                </div>
+                <div class="card stack">
+                    <div class="two-col">
+                        <div>
+                            <p class="muted">Guest</p>
+                            <p class="strong">Ananya Rao</p>
+                        </div>
+                        <div>
+                            <p class="muted">Reservation ID</p>
+                            <p class="strong">#R-1045</p>
+                        </div>
+                        <div>
+                            <p class="muted">Room</p>
+                            <p class="strong">Deluxe · 205</p>
+                        </div>
+                        <div>
+                            <p class="muted">Status</p>
+                            <p class="badge success">Paid</p>
+                        </div>
+                    </div>
+                    <div class="table-wrapper compact">
+                        <table>
+                            <thead>
+                            <tr><th>Description</th><th>Amount (₹)</th></tr>
+                            </thead>
+                            <tbody>
+                            <tr><td>Room Charges (3 nights)</td><td>24,000</td></tr>
+                            <tr><td>Service Charges</td><td>3,200</td></tr>
+                            <tr><td>Taxes</td><td>4,300</td></tr>
+                            <tr><th>Total</th><th>31,500</th></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Staff / Housekeeping Page -->
+            <section id="staff" class="panel">
+                <div class="panel-head">
+                    <div>
+                        <h2>Staff & Housekeeping</h2>
+                        <p>Shifts, attendance, maintenance</p>
+                    </div>
+                    <div class="actions">
+                        <button class="primary-btn">Add Staff</button>
+                        <button class="ghost-btn">Export</button>
+                    </div>
+                </div>
+                <div class="two-col stack-gap">
+                    <div class="card">
+                        <h3>Staff Roster</h3>
+                        <div class="table-wrapper compact">
+                            <table>
+                                <thead><tr><th>Name</th><th>Role</th><th>Shift</th><th>Attendance</th></tr></thead>
+                                <tbody>
+                                <tr><td>Vikram Singh</td><td>Front Desk</td><td>08:00–16:00</td><td><span class="badge success">Present</span></td></tr>
+                                <tr><td>Neha Patel</td><td>Housekeeping</td><td>09:00–17:00</td><td><span class="badge success">Present</span></td></tr>
+                                <tr><td>Rohan Das</td><td>F&B</td><td>14:00–22:00</td><td><span class="badge warning">Late</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Housekeeping Schedule</h3>
+                        <ul class="list">
+                            <li>10:30 · Room 205 · Refresh linens</li>
+                            <li>11:15 · Room 418 · Deep clean</li>
+                            <li>12:00 · Floor 3 · Restock supplies</li>
+                        </ul>
+                        <h3>Maintenance Tasks</h3>
+                        <ul class="list">
+                            <li>Room 312 · AC not cooling</li>
+                            <li>Lobby · Light replacement</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reports placeholder -->
+            <section id="reports" class="panel">
+                <h2>Reports</h2>
+                <p>Generate and view detailed reports.</p>
+            </section>
+
+            <!-- Settings placeholder -->
+            <section id="settings" class="panel">
+                <h2>Settings</h2>
+                <p>Manage preferences and configurations.</p>
+            </section>
+        </main>
+    </div>
+</div>
+</body>
+</html>
